@@ -1,0 +1,22 @@
+.title {
+    cursor: pointer;
+}
+
+h1 {
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    width: fit-content;
+    height: fit-content;
+    border: 2px solid black;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 25px;
+    padding: 0.025em;
+}
+
+button:hover {
+    background-color: grey;
+}
