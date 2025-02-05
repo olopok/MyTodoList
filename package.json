@@ -9,5 +9,8 @@
   },
   "scripts": {
     "dev": "webpack serve --open"
+  },
+  "dependencies": {
+    "date-fns": "^4.1.0"
   }
 }
