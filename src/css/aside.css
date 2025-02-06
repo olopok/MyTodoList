@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 .left-main-container {
     display: flex;
     flex-direction: column;
@@ -28,7 +32,7 @@ ul, li {
     align-content: space-between;
 }
 
-.prj-btn-container {
+.btn-container {
     display: flex;
     justify-content: space-evenly;
     align-content: center;
@@ -55,6 +59,20 @@ button:hover {
     background-color: grey;
 }
 
+input,textarea {
+    margin-bottom: 0.5em;
+}
+
+input[type="date"], select {
+    max-width: fit-content;
+}
+
+textarea {
+    max-width: 100%;
+    min-height: 50px;
+    field-sizing: content;
+}
+
 /* css from mdn example */
 /*   Open state of the dialog  */
 dialog[open] {
@@ -64,6 +82,8 @@ dialog[open] {
 
 /*   Closed state of the dialog   */
 dialog {
+    width: 35%;
+    height: fit-content;
     opacity: 0;
     transform: scaleY(0);
     transition:

@@ -15,10 +15,10 @@
         </div>
     </header>
     <div class="body-container">
-        <dialog class="projects-modal">
+        <dialog class="modal">
             <form autocomplete="off" method="dialog">
                 <ul>
-                    <li>
+                    <!-- <li>
                         <label for="title">Title</label>
                         <input type="text" id="title">
                     </li>
@@ -33,11 +33,11 @@
                     <li>
                         <label for="end-date">End Date</label>
                         <input type="date" id="end-date">
-                    </li>
+                    </li> -->
                 </ul>
-                <div class="prj-btn-container">
-                    <button>Submit</button>
-                    <button>Cancel</button>
+                <div class="btn-container">
+                    <button type="submit">Submit</button>
+                    <button id="cancel">Cancel</button>
                 </div>
             </form>
         </dialog>
@@ -45,12 +45,12 @@
         <aside class="left-main-container">
             <section class="projects-container">
                 <h1 class="title">PROJECTS
-                    <button class="add">+</button>
+                    <button class="add" id="project-list">+</button>
                 </h1>
             </section>
             <section class="todo-container">
                 <h1 class="title">TO-DO LIST
-                    <button class="add">+</button>
+                    <button class="add" id="todo-list">+</button>
                 </h1>
             </section>
         </aside>
