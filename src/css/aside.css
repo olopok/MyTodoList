@@ -20,6 +20,9 @@
     padding: 0.5rem;
     margin-block: 1rem;
 }
+.title-container {
+    display: flex;
+}
 
 h1 {
     display: flex;
@@ -71,6 +74,10 @@ textarea {
     max-width: 100%;
     min-height: 50px;
     field-sizing: content;
+}
+
+.none {
+    display: none;
 }
 
 /* css from mdn example */

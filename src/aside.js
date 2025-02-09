@@ -1,8 +1,6 @@
 
 // projects section
 
-const displaySection = document.querySelectorAll('.display-section');
-
 
 class Sections {
     constructor(title, description, startDate, endDate, priority) {
@@ -13,15 +11,41 @@ class Sections {
         this.priority = priority;
     };
 
-    createSectionProject() {
-       const projectTitle = document.createElement('h2')
-        projectTitle.textContent = this.title;
-        const description = document.createElement('p');
-        description.textContent = this.description;
+    projectTitle(a, b) {
+        const projectTitle = document.createElement(a)
+        projectTitle.classList.add(b)
+        projectTitle.textContent = `${this.title}`;
+        return projectTitle;
+    };
+
+    projectDescription(a, b) {
+        const projectDescription = document.createElement(a);
+        projectDescription.classList.add(b);
+        projectDescription.textContent = `${this.description}`;
+        return projectDescription;
+    };
+
+    projectStartDate(a, b) {
+        const projectStartDate = document.createElement(a);
+        projectStartDate.classList.add(b);
+        projectStartDate.textContent = `$(this.startDate)`;
+        return projectStartDate;
+    };
+
+    projectEndDate(a, b) {
+        const projectEndDate = document.createElement(a);
+        projectEndDate.classList.add(b);
+        projectEndDate.textContent = `${this.endDate}`;
+        return projectEndDate;
+    };
+
+    projectPriority(a, b) {
+        const projectPriority = document.createElement(a)
+        projectPriority.classList.add(b);
+        projectPriority.textContent = `${this.priority}`;
     };
 };
 
 
 
-
-
+export { Sections }
