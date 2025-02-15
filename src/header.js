@@ -5,6 +5,7 @@ const HAMBURGER = () => {
     const MENU = document.createElement('div');
     MENU.classList.add('line');
     HMENU.appendChild(MENU);
+
     }
 };
 HAMBURGER();

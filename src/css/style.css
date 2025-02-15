@@ -42,3 +42,51 @@ header {
     margin: 1rem;
 }
 
+h1 {
+    display: flex;
+    font-size: 25px;
+}
+
+.title-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.projects-container,
+.todo-container {
+    width: calc(100% - 1rem);
+    height: auto;
+    border: 2px solid black;
+    border-radius: 20px;
+    padding: 0.5rem;
+    margin-block: 1rem;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+    padding: 0.5em;
+}
+
+button {
+    width: fit-content;
+    height: fit-content;
+    border: 2px solid black;
+    border-radius: 7px;
+    text-align: center;
+    cursor: pointer;
+    padding: 0.1em;
+}
+
+.add {
+    font-size: 25px;
+    padding: 0.025em;
+
+}
+
+button:hover {
+    background-color: grey;
+}
+
+
