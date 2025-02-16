@@ -5,6 +5,7 @@ import "./css/aside.css";
 
 import hamburger from "./header.js";
 import { SHOWMODAL, CLOSE_MODAL_PROJECT, PROJECT_FORM_ENTRIES } from "./modal.js";
+// import { createOptionElement } from "./modal/projects-options.js";
 
 hamburger;
 
