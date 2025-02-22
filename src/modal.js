@@ -1,7 +1,6 @@
 import { projectList, todoList } from "./aside-content/new-project";
 import { createOptionElement, clearHtmlOptionElement} from "./modal/projects-options.js";
 
-// const MODAL = (() => {
     const DIAL_PROJECT = document.querySelector("#project-modal");
     const DIAL_TODO = document.querySelector('#todo-modal')
     const EL = document.querySelector('.priority-list');
@@ -14,12 +13,10 @@ import { createOptionElement, clearHtmlOptionElement} from "./modal/projects-opt
             DIAL_PROJECT.showModal();
             CLOSE_MODAL_PROJECT();
             PROJECT_FORM_ENTRIES();
-            // createOptionElement();
 
         };
         if (ID === 'todo-list') {
             createOptionElement();
-            // clearHtmlOptionElement();
             DIAL_TODO.showModal();
             CLOSE_MODAL_TODO();
             TODO_FORM_ENTRIES();
@@ -64,9 +61,5 @@ import { createOptionElement, clearHtmlOptionElement} from "./modal/projects-opt
             DIAL_TODO.close();
         })
     }
-
-    // return { SHOWMODAL, PROJECT_FORM_ENTRIES };
-
-// })();
 
 export { SHOWMODAL, CLOSE_MODAL_PROJECT, PROJECT_FORM_ENTRIES }

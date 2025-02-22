@@ -4,8 +4,8 @@ import "./css/modal.css"
 import "./css/aside.css";
 
 import hamburger from "./header.js";
-import { SHOWMODAL, CLOSE_MODAL_PROJECT, PROJECT_FORM_ENTRIES } from "./modal.js";
-// import { createOptionElement } from "./modal/projects-options.js";
+import { SHOWMODAL} from "./modal.js";
+import { createHtmlProject } from "./aside-content/new-project.js";
 
 hamburger;
 
@@ -17,3 +17,5 @@ for (let btn of ADD_BTN) {
         SHOWMODAL(ID);
         });
 };
+
+createHtmlProject();
