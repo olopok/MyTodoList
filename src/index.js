@@ -3,11 +3,10 @@ import "./css/hamburger.css";
 import "./css/modal.css"
 import "./css/aside.css";
 
-import hamburger from "./header.js";
+// import hamburger from "./header.js";
 import { SHOWMODAL} from "./modal.js";
-import { createHtmlProject } from "./aside-content/new-project.js";
 
-hamburger;
+// hamburger;
 
 const ADD_BTN = document.querySelectorAll('.add');
 
@@ -18,4 +17,3 @@ for (let btn of ADD_BTN) {
         });
 };
 
-createHtmlProject();

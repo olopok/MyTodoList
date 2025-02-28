@@ -5,19 +5,7 @@ export class Project {
         this.title = title;
         this.description = description;
         this.dueDate = dueDate;
-    }; 
-
-    settitle (title) {
-        this.title = title;
-    };
-
-    setdescription(description) {
-        this.description = description;
-    };
-
-    setdueDate (x) {
-        this.dueDate = x;
-    };
+    }
 };
 
 export class ToDo extends Project {

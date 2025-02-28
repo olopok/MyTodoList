@@ -1,5 +1,7 @@
 import { projectList, todoList } from "./aside-content/new-project";
 import { createOptionElement, clearHtmlOptionElement} from "./modal/projects-options.js";
+import { displayHtmlProjects } from "./aside-content/new-project.js";
+
 
     const DIAL_PROJECT = document.querySelector("#project-modal");
     const DIAL_TODO = document.querySelector('#todo-modal')
@@ -13,15 +15,14 @@ import { createOptionElement, clearHtmlOptionElement} from "./modal/projects-opt
             DIAL_PROJECT.showModal();
             CLOSE_MODAL_PROJECT();
             PROJECT_FORM_ENTRIES();
-
         };
         if (ID === 'todo-list') {
             createOptionElement();
             DIAL_TODO.showModal();
             CLOSE_MODAL_TODO();
             TODO_FORM_ENTRIES();
-        }
-    }
+        };
+    };
 
    const CLOSE_MODAL_PROJECT = () => {
         document.getElementById('cancel-project').addEventListener('click', () => {
@@ -43,8 +44,9 @@ import { createOptionElement, clearHtmlOptionElement} from "./modal/projects-opt
             e.preventDefault();
             e.stopImmediatePropagation();
             FORM_ENTRIES = Object.fromEntries(new FormData(FORM_PROJECT));
+            // debugger
             projectList(FORM_ENTRIES);
-
+            displayHtmlProjects();
             FORM_PROJECT.reset();
             DIAL_PROJECT.close();
         });
@@ -59,7 +61,7 @@ import { createOptionElement, clearHtmlOptionElement} from "./modal/projects-opt
             clearHtmlOptionElement();
             FORM_TODO.reset();
             DIAL_TODO.close();
-        })
-    }
+        });
+    };
 
 export { SHOWMODAL, CLOSE_MODAL_PROJECT, PROJECT_FORM_ENTRIES }

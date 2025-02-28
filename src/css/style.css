@@ -76,7 +76,7 @@ button {
     border-radius: 7px;
     text-align: center;
     cursor: pointer;
-    padding: 0.1em;
+    /* padding: 0.1em; */
 }
 
 .add {
