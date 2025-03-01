@@ -47,7 +47,10 @@ export function displayHtmlProjects() {
         htmlProject.wrapper.appendChild(htmlProject.editButton);
         htmlProject.wrapper.appendChild(htmlProject.deleteButton);
 
-        DISPLAY_PROJECTS.appendChild(htmlProject.wrapper)
+        DISPLAY_PROJECTS.appendChild(htmlProject.wrapper);
+
+        htmlProject.editButton.addEventListener('click', editProject);
+
     };
 };
 
@@ -58,5 +61,4 @@ export function todoList(entries) {
     TO_STORAGE_TODO.push(NEW_TODO);
     console.log(TO_STORAGE_TODO)
 }
-
 

@@ -15,11 +15,31 @@ export function createOptionElement() {
             HTML_OPTION_ELEMENT = [];
         };
     };
-    
+
 };
 
-export function clearHtmlOptionElement () {
+export function clearHtmlOptionElement() {
     HTML_OPTION_ELEMENT = [];
     const SEL = document.getElementById('project-selection');
     SEL.innerHTML = "";
-}
+};
+
+export function editProjectsModal(id) {
+    const getBtnSub = document.querySelector('#project-submit');
+    const getBtnSave = document.querySelector('#save');
+    if (typeof id === 'number') {
+        if (getBtnSub.classList.contains('active')) {
+            getBtnSub.classList.remove('active');
+            getBtnSub.classList.add('none')
+        };
+        getBtnSave.classList.add('active');
+        getBtnSave.classList.remove('none');
+    } else if (typeof id !== 'number') {
+        if (getBtnSave.classList.contains('active')) {
+            getBtnSave.classList.remove('active');
+            getBtnSave.classList.add('none');
+        };
+        getBtnSub.classList.remove('none');
+        getBtnSub.classList.add('active');
+    }
+};

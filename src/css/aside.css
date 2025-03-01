@@ -19,3 +19,11 @@
     background-color: darkgray;
     cursor: pointer;
 }
+
+.none {
+    display: none;
+}
+
+.active {
+    display: inline;
+}
