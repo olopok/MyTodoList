@@ -12,8 +12,6 @@ let FORM_ENTRIES;
 
 const SHOWMODAL = (ID) => {
     if (ID === 'project-list') {
-        // editProjectsModal(ID);
-
         DIAL_PROJECT.showModal();
         CLOSE_MODAL_PROJECT();
         PROJECT_FORM_ENTRIES();
@@ -56,7 +54,10 @@ const PROJECT_FORM_ENTRIES = () => {
         FORM_ENTRIES = Object.fromEntries(new FormData(FORM_PROJECT));
         projectList(FORM_ENTRIES);
         displayHtmlProjects();
-        // editProjectsModal();
+        const id = e.target.id
+
+        editProjectsModal(id);
+
         FORM_PROJECT.reset();
         DIAL_PROJECT.close();
     });

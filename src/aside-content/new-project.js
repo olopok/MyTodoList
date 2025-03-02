@@ -32,7 +32,6 @@ export function displayHtmlProjects() {
     };   
 
     for (let i = 0; i < project.length; i++) {
-
         htmlProject.h3.textContent = project[i].title;
         htmlProject.p.textContent = project[i].description;
         htmlProject.span.textContent = project[i].dueDate;
@@ -46,14 +45,10 @@ export function displayHtmlProjects() {
         htmlProject.wrapper.appendChild(htmlProject.span);
         htmlProject.wrapper.appendChild(htmlProject.editButton);
         htmlProject.wrapper.appendChild(htmlProject.deleteButton);
-
         DISPLAY_PROJECTS.appendChild(htmlProject.wrapper);
-
         htmlProject.editButton.addEventListener('click', editProject);
-
     };
 };
-
 
 export function todoList(entries) {
     const NEW_TODO = new ToDo(entries.title, entries.description, entries.dueDate, entries.priority);

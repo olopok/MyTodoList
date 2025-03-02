@@ -26,7 +26,7 @@ export function clearHtmlOptionElement() {
 
 export function editProjectsModal(id) {
     const getBtnSub = document.querySelector('#project-submit');
-    const getBtnSave = document.querySelector('#save');
+    const getBtnSave = document.querySelector('#prj-save');
     if (typeof id === 'number') {
         if (getBtnSub.classList.contains('active')) {
             getBtnSub.classList.remove('active');

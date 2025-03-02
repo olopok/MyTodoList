@@ -22,21 +22,21 @@
                 <ul>
                     <li>
                         <label for="title">Title</label>
-                        <input type="text" id="title" name="title" required>
+                        <input type="text" id="prj-title" name="title" required>
                     </li>
                     <li>
                         <label for="textArea">Description</label>
-                        <textarea name="description" id="textArea"></textarea>
+                        <textarea name="description" id="prj-textarea"></textarea>
                     </li>
                     <li>
                         <label for="due-date">Due Date</label>
-                        <input type="date" id="due-date" name="dueDate">
+                        <input type="date" id="prj-due-date" name="dueDate">
                     </li>
                 </ul>
                 <div id="projects-btn-wrapper" class="btn-container">
                     <button id="project-submit" class="active" type="submit">Confirm</button>
                     <button type="button" id="cancel-project">Cancel</button>
-                    <button type="button" id="save" class="none">Save</button>
+                    <button type="button" id="prj-save" class="none">Save</button>
                 </div>
             </form>
         </dialog>
@@ -46,15 +46,15 @@
                 <ul>
                     <li>
                         <label for="title">Title</label>
-                        <input type="text" id="title" name="title" required>
+                        <input type="text" id="todo-title" name="title" required>
                     </li>
                     <li>
                         <label for="textArea">Description</label>
-                        <textarea name="description" id="textArea"></textarea>
+                        <textarea name="description" id="todo-textArea"></textarea>
                     </li>
                     <li>
                         <label for="due-date">Due Date</label>
-                        <input type="date" id="due-date" name="dueDate">
+                        <input type="date" id="todo-due-date" name="dueDate">
                     </li>
                     <li class="priority-list">
                         <label for="priority">Priority</label>
@@ -72,7 +72,7 @@
                     </li>
                 </ul>
                 <div class="btn-container">
-                    <button type="submit">Confirm</button>
+                    <button type="submit" id="todo-submit" class="active">Confirm</button>
                     <button type="button" id="cancel-todo">Cancel</button>
                 </div>
             </form>
