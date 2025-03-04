@@ -1,6 +1,6 @@
 import { createHtmlElement } from "../functions.js";
 import { Project, ToDo } from "../classes/classes.js";
-import { editProject, deleteProject } from "../functions.js";
+import { editProject, deleteProject, stringProjectToStorage } from "../functions.js";
 
 import pencil from "../icon/pencil.svg";
 import del from "../icon/delete.svg";
@@ -13,12 +13,15 @@ export function projectList(entries) {
     const NEW_PROJECT = new Project(entries.title, entries.description, entries.dueDate);
     TO_STORAGE_PROJECTS.push(NEW_PROJECT);
     console.log(TO_STORAGE_PROJECTS);
-    localStorage.setItem('Projects', JSON.stringify(TO_STORAGE_PROJECTS));
+    // stringProjectToStorage(TO_STORAGE_PROJECTS);
+        localStorage.setItem('Projects', JSON.stringify(TO_STORAGE_PROJECTS));
+        displayHtmlProjects();
 };
 
 export function displayHtmlProjects() {
 
     const project = JSON.parse(localStorage.getItem('Projects'));
+    console.log(project, 'parsed')
 
     const htmlProject = {
         wrapper: createHtmlElement('div', 'class', 'single-project-container'),
@@ -31,7 +34,7 @@ export function displayHtmlProjects() {
         imgDeleteButton: createHtmlElement('img', 'src', del)
     };   
 
-    for (let i = 0; i < project.length; i++) {
+    for (let i=0; i < project.length; i++) {
         htmlProject.h3.textContent = project[i].title;
         htmlProject.p.textContent = project[i].description;
         htmlProject.span.textContent = project[i].dueDate;
@@ -47,6 +50,7 @@ export function displayHtmlProjects() {
         htmlProject.wrapper.appendChild(htmlProject.deleteButton);
         DISPLAY_PROJECTS.appendChild(htmlProject.wrapper);
         htmlProject.editButton.addEventListener('click', editProject);
+        htmlProject.deleteButton.addEventListener('click', deleteProject);
     };
 };
 

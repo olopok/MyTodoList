@@ -5,8 +5,14 @@ import "./css/aside.css";
 
 // import hamburger from "./header.js";
 import { SHOWMODAL} from "./modal.js";
+import { displayHtmlProjects } from "./aside-content/new-project.js";
 
-// hamburger;
+// window.addEventListener('load', () => {
+//     const prj = JSON.parse(localStorage.getItem('Projects'))
+//     for (let i=0; i< prj.length; i++){
+//         displayHtmlProjects();
+//     }
+// })
 
 const ADD_BTN = document.querySelectorAll('.add');
 

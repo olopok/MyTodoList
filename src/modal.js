@@ -1,6 +1,6 @@
 import { projectList, todoList } from "./aside-content/new-project";
 import { createOptionElement, clearHtmlOptionElement, editProjectsModal } from "./modal/projects-options.js";
-import { displayHtmlProjects } from "./aside-content/new-project.js";
+// import { displayHtmlProjects } from "./aside-content/new-project.js";
 
 
 const DIAL_PROJECT = document.querySelector("#project-modal");
@@ -53,7 +53,7 @@ const PROJECT_FORM_ENTRIES = () => {
         e.stopImmediatePropagation();
         FORM_ENTRIES = Object.fromEntries(new FormData(FORM_PROJECT));
         projectList(FORM_ENTRIES);
-        displayHtmlProjects();
+        // displayHtmlProjects();
         const id = e.target.id
 
         editProjectsModal(id);
