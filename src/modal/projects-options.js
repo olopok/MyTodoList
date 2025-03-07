@@ -6,7 +6,7 @@ let HTML_OPTION_ELEMENT = [];
 export function createOptionElement() {
     for (const x of TO_STORAGE_PROJECTS) {
         HTML_OPTION_ELEMENT.push(x.title);
-        console.log(HTML_OPTION_ELEMENT)
+        console.log(HTML_OPTION_ELEMENT, 'createOptionElement func')
         for (const y in HTML_OPTION_ELEMENT) {
             const EL = createHtmlElement('option', 'value', HTML_OPTION_ELEMENT[y]);
             EL.textContent = HTML_OPTION_ELEMENT[y];

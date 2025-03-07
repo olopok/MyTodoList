@@ -4,7 +4,7 @@ import { TO_STORAGE_PROJECTS, displayHtmlProjects } from "./aside-content/new-pr
 
 let nodeList, indexStorage;
 
-export function stringProjectToStorage(){
+export function stringStorageDel(){
     TO_STORAGE_PROJECTS.splice(indexStorage, 1);
     let stor = JSON.parse(localStorage.getItem('Projects'));
     stor = TO_STORAGE_PROJECTS;
@@ -69,5 +69,5 @@ export function deleteProject(e) {
     const parentElement = document.querySelector('#display-projects');
     const child = document.getElementById(id);
     parentElement.removeChild(child);
-    stringProjectToStorage();
+    stringStorageDel();
 };

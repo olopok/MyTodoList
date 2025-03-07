@@ -42,10 +42,6 @@ header {
     margin: 1rem;
 }
 
-h1 {
-    display: flex;
-    font-size: 25px;
-}
 
 .title-container {
     display: flex;
