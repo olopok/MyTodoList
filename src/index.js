@@ -10,9 +10,11 @@ import { displayHtmlProjects, getStorage } from "./aside-content/new-project.js"
 
 const ADD_BTN = document.querySelectorAll('.add');
 
-window.addEventListener('load', () => {
-    displayHtmlProjects(getStorage());
-});
+// window.addEventListener('load', () => {
+//     let project
+//     if (localStorage.length == 0 || []) {alert('no projects')} else project = getStorage();
+//     displayHtmlProjects(project)
+// });
 
 for (let btn of ADD_BTN) {
     btn.addEventListener('click', (e) => {
