@@ -1,7 +1,5 @@
 export function setStorage(ar) {
-
 let items;
-
 if (!items) {
     localStorage.setItem('Projects', JSON.stringify(ar));
     items = getStorage();
@@ -15,8 +13,6 @@ export function getStorage() {
     if (storedData) {
         const userData = JSON.parse(storedData);
         return userData;
-
       } else 
         console.log('User data not found in local storage')
-      
 }

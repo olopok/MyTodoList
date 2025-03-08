@@ -5,16 +5,18 @@ import "./css/aside.css";
 
 // import hamburger from "./header.js";
 import { SHOWMODAL } from "./modal.js";
-import { displayHtmlProjects, getStorage } from "./aside-content/new-project.js";
-
+import { displayHtmlProjects } from "./UI.js";
+import { getStorage } from "./local-storage.js";
 
 const ADD_BTN = document.querySelectorAll('.add');
 
-// window.addEventListener('load', () => {
-//     let project
-//     if (localStorage.length == 0 || []) {alert('no projects')} else project = getStorage();
-//     displayHtmlProjects(project)
-// });
+window.addEventListener('load', () => {
+    const getSavedProjects = getStorage();
+    console.log(getSavedProjects, 'index')
+    if (getSavedProjects) {
+        displayHtmlProjects(getSavedProjects);
+    } else alert('no saved data')
+});
 
 for (let btn of ADD_BTN) {
     btn.addEventListener('click', (e) => {

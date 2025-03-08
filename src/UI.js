@@ -1,9 +1,15 @@
-import { createHtmlElement } from "../functions.js";
+import { createHtmlElement } from "./functions.js";
+import { editProject, deleteProject } from "./functions.js";
+
+import pencil from "./icon/pencil.svg";
+import del from "./icon/delete.svg";
+import { parseJSONWithOptions } from "date-fns/fp";
+
 
 
 export function displayHtmlProjects(project) {
-    // const project = JSON.parse(localStorage.getItem('Projects'));
-    // console.log(project, 'parsed')
+    const DISPLAY_PROJECTS = document.getElementById('display-projects');
+
 
     for (let i = 0; i < project.length; i++) {
         const htmlProject = {
@@ -24,7 +30,7 @@ export function displayHtmlProjects(project) {
         htmlProject.deleteButton.classList.add('icon');
         htmlProject.editButton.appendChild(htmlProject.imgEditButton);
         htmlProject.deleteButton.appendChild(htmlProject.imgDeleteButton);
-        htmlProject.wrapper.setAttribute('id', index);
+        htmlProject.wrapper.setAttribute('id', i);
         htmlProject.wrapper.appendChild(htmlProject.h3);
         htmlProject.wrapper.appendChild(htmlProject.p);
         htmlProject.wrapper.appendChild(htmlProject.span);

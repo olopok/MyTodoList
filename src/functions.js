@@ -1,14 +1,15 @@
 import { SHOWMODAL } from "./modal.js";
 import { editProjectsModal } from "./modal/projects-options.js";
 import { TO_STORAGE_PROJECTS, displayHtmlProjects } from "./aside-content/new-project.js";
+import { getStorage, setStorage } from "./local-storage.js";
 
 let nodeList, indexStorage;
 
 export function stringStorageDel(){
-    TO_STORAGE_PROJECTS.splice(indexStorage, 1);
-    let stor = JSON.parse(localStorage.getItem('Projects'));
-    stor = TO_STORAGE_PROJECTS;
-    localStorage.setItem('Projects', JSON.stringify(stor));
+    const getSavedProjects = getStorage()
+    getSavedProjects.splice(indexStorage, 1)
+    console.log(getSavedProjects,'deleted')
+    setStorage(getSavedProjects)
 }
 
 export function createHtmlElement(html, attribute, value) {
@@ -18,23 +19,20 @@ export function createHtmlElement(html, attribute, value) {
 };
 
 function changeProjectValue(x) {
+    const getSavedProjects = getStorage();
     if (x.title) {
         nodeList.item(0).textContent = x.title;
-        TO_STORAGE_PROJECTS[indexStorage].title = x.title;
+        getSavedProjects[indexStorage].title = x.title;
     };
     if (x.description) {
         nodeList.item(1).textContent = x.description;
-        TO_STORAGE_PROJECTS[indexStorage].description = x.description;
+        getSavedProjects[indexStorage].description = x.description;
     };
     if (x.dueDate) {
         nodeList.item(2).textContent = x.dueDate;
-        TO_STORAGE_PROJECTS[indexStorage].dueDate = x.dueDate;
+        getSavedProjects[indexStorage].dueDate = x.dueDate;
     };
-    let stringStorage = localStorage.getItem('Projects');
-    const updateStorage = JSON.parse(stringStorage);
-    updateStorage[indexStorage] = TO_STORAGE_PROJECTS[indexStorage];
-    stringStorage = JSON.stringify(updateStorage);
-    localStorage.setItem('Projects', stringStorage);
+    setStorage(getSavedProjects)
 };
 
 export function editProject(e) {
