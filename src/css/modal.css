@@ -25,6 +25,10 @@ textarea {
     display: none;
 }
 
+.active {
+    display: inline;
+}
+
 /* css from mdn example */
 /*   Open state of the dialog  */
 dialog[open] {

@@ -1,15 +1,22 @@
 import { SHOWMODAL, editTodoModal } from "./modal.js";
 import { clearHtmlOptionElement, editProjectsModal } from "./modal/projects-options.js";
 import { getStorage, setStorage, getTodoStorage, setTodoStorage } from "./local-storage.js";
-import { isAfter } from "date-fns";
+import { isAfter, isEqual, startOfDay } from "date-fns";
 
 let nodeList, indexStorage;
 
-export function stringStorageDel() {
-    const getSavedProjects = getStorage()
-    getSavedProjects.splice(indexStorage, 1)
-    console.log(getSavedProjects, 'deleted')
-    setStorage(getSavedProjects)
+export function stringStorageDel(x) {
+    if (x === 'Projects') {
+        const getSavedProjects = getStorage()
+        getSavedProjects.splice(indexStorage, 1)
+        // console.log(getSavedProjects, 'deleted')
+        setStorage(getSavedProjects)
+    } else if (x === 'Todo') {
+        const getSavedTodo = getTodoStorage()
+        const index = indexStorage.match(/(\d)$/gm)
+        getSavedTodo.splice(index, 1)
+        setTodoStorage(getSavedTodo)
+    }
 }
 
 export function createHtmlElement(html, attribute, value) {
@@ -37,7 +44,7 @@ function changeProjectValue(x) {
 
 function changeTodoValue(x) {
     const regex = indexStorage.match(/(\d)$/gm)
-    console.log(regex)
+    console.log(x)
     const getSavedTodos = getTodoStorage();
     if (x.title) {
         nodeList.item(0).textContent = x.title;
@@ -57,16 +64,11 @@ function changeTodoValue(x) {
         nodeList.item(3).textContent = x.priority;
         getSavedTodos[regex].priority = x.priority;
     };
-    // if (x.status) {
-    //     nodeList.item(4).textContent = x.status;
-    //     getSavedTodos[regex].status = x.status;
-    // };
     if (x.projectselection) {
         nodeList.item(5).textContent = x.projectselection;
         getSavedTodos[regex].project = x.projectselection;
     };
     setTodoStorage(getSavedTodos)
-
 };
 
 
@@ -107,7 +109,16 @@ export function deleteProject(e) {
     const parentElement = document.querySelector('#display-projects');
     const child = document.getElementById(id);
     parentElement.removeChild(child);
-    stringStorageDel();
+    stringStorageDel('Projects');
+};
+
+export function deleteTodo(e) {
+    const id = e.target.closest('div').id;
+    indexStorage = id;
+    const parentElement = document.querySelector('#display-todo');
+    const child = document.getElementById(id);
+    parentElement.removeChild(child);
+    stringStorageDel('Todo');
 };
 
 export function editTodo(e) {
@@ -124,7 +135,8 @@ export function editTodo(e) {
 
     saveBtn.addEventListener('click', (e) => {
         e.stopImmediatePropagation();
-        const values = Object.fromEntries(new FormData(form));
+        let values = Object.fromEntries(new FormData(form));
+        values.status = changeStatus()
         writeNewTodoValues(values);
         clearHtmlOptionElement();
         form.reset();
@@ -139,7 +151,7 @@ function changeStatus() {
     if (!nodeValue) {
         return nodeList.item(4).textContent = ""
     }
-    else if (isAfter(nodeValue, new Date())) {
+    else if (isEqual(nodeValue, startOfDay(new Date())) || isAfter(nodeValue, startOfDay(new Date()))) {
         return nodeList.item(4).textContent = 'In progress';
     } else return nodeList.item(4).textContent = 'Delayed';
 }

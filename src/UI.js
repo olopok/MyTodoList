@@ -1,5 +1,6 @@
-import { createHtmlElement, editTodo } from "./functions.js";
+import { createHtmlElement, editTodo, deleteTodo } from "./functions.js";
 import { editProject, deleteProject } from "./functions.js";
+import { ToDo } from "./classes/classes.js";
 
 import pencil from "./icon/pencil.svg";
 import del from "./icon/delete.svg";
@@ -81,7 +82,7 @@ export function displayHtmlTodo(todo) {
         htmlTodo.wrapper.appendChild(htmlTodo.deleteButton);
         displayTodo.appendChild(htmlTodo.wrapper);
         htmlTodo.editButton.addEventListener('click', editTodo);
-        // htmlTodo.deleteButton.addEventListener('click', deleteProject);
+        htmlTodo.deleteButton.addEventListener('click', deleteTodo);
     }
 
 }

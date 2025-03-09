@@ -1,6 +1,7 @@
 import "./css/style.css";
 import "./css/hamburger.css";
-import "./css/modal.css"
+import "./css/modal.css";
+import "./css/main-section.css";
 import "./css/aside.css";
 
 // import hamburger from "./header.js";
