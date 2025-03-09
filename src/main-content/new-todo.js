@@ -8,9 +8,9 @@ const displayContainer = document.getElementById('display-todo')
 
 
 export function todoList(entries) {
-    const NEW_TODO = new ToDo(entries.title, entries.description, entries.dueDate, entries.priority);
-    NEW_TODO.setStatus();
-    NEW_TODO.setProject(entries.projectselection);
+    const NEW_TODO = new ToDo(entries.title, entries.description, entries.dueDate, entries.priority, entries.status, entries.projectselection);
+    // NEW_TODO.setStatus();
+    // NEW_TODO.setProject(entries.projectselection);
     console.log(NEW_TODO, 'new-todo')
     const getSavedTodo = getTodoStorage();
     if (getSavedTodo) {

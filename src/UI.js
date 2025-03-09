@@ -53,7 +53,7 @@ export function displayHtmlTodo(todo) {
             span: createHtmlElement('span', 'class', 'todo-duedate'),
             span1: createHtmlElement('span', 'class', 'priority'),
             span2: createHtmlElement('span', 'class', 'status'),
-            span3: createHtmlElement('span', 'class', 'project-owner'),
+            span3: createHtmlElement('span', 'class', 'projectowner'),
             editButton: createHtmlElement('button', 'class', 'edit'),
             deleteButton: createHtmlElement('button', 'class', 'delete'),
             imgEditButton: createHtmlElement('img', 'src', pencil),
@@ -63,6 +63,9 @@ export function displayHtmlTodo(todo) {
         htmlTodo.p.textContent = todo[i].description;
         htmlTodo.h3.textContent = todo[i].title;
         htmlTodo.span.textContent = todo[i].dueDate;
+        htmlTodo.span1.textContent = todo[i].priority;
+        htmlTodo.span2.textContent = todo[i].status;
+        htmlTodo.span3.textContent = todo[i].project;
         htmlTodo.editButton.classList.add('icon');
         htmlTodo.deleteButton.classList.add('icon');
         htmlTodo.editButton.appendChild(htmlTodo.imgEditButton);

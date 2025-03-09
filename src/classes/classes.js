@@ -22,11 +22,11 @@ export class ToDo extends Project {
         } else return this.status = 'Delayed';
     };
 
-    setPriority(priority) {
-        this.priority = priority;
-    }
+    // setPriority(priority) {
+    //     this.priority = priority;
+    // }
 
-    setProject(project) {
-        this.project = project;
-    }
+    // setProject(project) {
+    //     this.project = project;
+    // }
 };
