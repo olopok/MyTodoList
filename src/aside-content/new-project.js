@@ -8,7 +8,7 @@ const displayContainer = document.getElementById('display-projects')
 export function projectList(entries) {
     const NEW_PROJECT = new Project(entries.title, entries.description, entries.dueDate);
     const getSavedProjects = getStorage();
-    console.log(getSavedProjects.length, 'projectList func')
+    // console.log(getSavedProjects.length, 'projectList func')
     if (getSavedProjects) {
         getSavedProjects.push(NEW_PROJECT)
     }

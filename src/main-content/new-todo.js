@@ -1,17 +1,40 @@
 import { createHtmlElement } from "../functions.js";
 import { ToDo } from "../classes/classes.js";
+import { getTodoStorage, setTodoStorage } from "../local-storage.js";
+import { displayHtmlTodo } from "../UI.js";
 
-const TO_STORAGE_TODO = [];
+export let TO_STORAGE_TODO = [];
+const displayContainer = document.getElementById('display-todo')
+
 
 export function todoList(entries) {
     const NEW_TODO = new ToDo(entries.title, entries.description, entries.dueDate, entries.priority);
     NEW_TODO.setStatus();
-    TO_STORAGE_TODO.push(NEW_TODO);
-    console.log(TO_STORAGE_TODO, 'todolist func')
+    NEW_TODO.setProject(entries.projectselection);
+    console.log(NEW_TODO, 'new-todo')
+    const getSavedTodo = getTodoStorage();
+    if (getSavedTodo) {
+        getSavedTodo.push(NEW_TODO)
+        setTodoStorage(getSavedTodo)
+
+    } 
+    TO_STORAGE_TODO.push(NEW_TODO)
+
+    displayContainer.innerHTML = ""
+    displayHtmlTodo(getSavedTodo);
+
+    console.log(getSavedTodo, 'todolist func')
 }
 
-// export function createTodoHtml() {
-//     for (let i = 0; i < TO_STORAGE_TODO; i++) {
-        
+// export function projectList(entries) {
+//     const NEW_PROJECT = new Project(entries.title, entries.description, entries.dueDate);
+//     const getSavedProjects = getStorage();
+//     console.log(getSavedProjects.length, 'projectList func')
+//     if (getSavedProjects) {
+//         getSavedProjects.push(NEW_PROJECT)
 //     }
-// }
+//     TO_STORAGE_PROJECTS.push(NEW_PROJECT);
+//     setStorage(getSavedProjects)
+//     displayContainer.innerHTML = "";
+//     displayHtmlProjects(getSavedProjects)
+// };

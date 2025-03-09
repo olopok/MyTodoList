@@ -9,13 +9,14 @@ const FORM_PROJECT = document.querySelector('#projects-form');
 const FORM_TODO = document.querySelector('#todo-form');
 let FORM_ENTRIES;
 
-const SHOWMODAL = (ID) => {
+const SHOWMODAL = (ID, editId) => {
     if (ID === 'project-list') {
         DIAL_PROJECT.showModal();
         CLOSE_MODAL_PROJECT();
         PROJECT_FORM_ENTRIES();
     };
     if (ID === 'todo-list') {
+        editTodoModal(editId)
         createOptionElement();
         DIAL_TODO.showModal();
         CLOSE_MODAL_TODO();
@@ -66,9 +67,32 @@ const TODO_FORM_ENTRIES = () => {
         FORM_ENTRIES = Object.fromEntries(new FormData(FORM_TODO));
         todoList(FORM_ENTRIES);
         clearHtmlOptionElement();
+        const id = e.target.id;
+        editTodoModal(id)
         FORM_TODO.reset();
         DIAL_TODO.close();
     });
 };
 
-export { SHOWMODAL, CLOSE_MODAL_PROJECT, PROJECT_FORM_ENTRIES }
+function editTodoModal(id){
+    const getBtnSub = document.querySelector('#todo-submit');
+    const getBtnSave = document.querySelector('#todo-save');
+    if ( /.(\d)$/gm.test(id)) {
+        if (getBtnSub.classList.contains('active')) {
+            getBtnSub.classList.remove('active');
+            getBtnSub.classList.add('none')
+        };
+        getBtnSave.classList.add('active');
+        getBtnSave.classList.remove('none');
+    } else if (typeof id !== 'number') {
+        if (getBtnSave.classList.contains('active')) {
+            getBtnSave.classList.remove('active');
+            getBtnSave.classList.add('none');
+        };
+        getBtnSub.classList.remove('none');
+        getBtnSub.classList.add('active');
+    }
+
+}
+
+export { SHOWMODAL, CLOSE_MODAL_PROJECT, PROJECT_FORM_ENTRIES, editTodoModal }

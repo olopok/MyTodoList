@@ -1,10 +1,12 @@
 import { TO_STORAGE_PROJECTS } from "../aside-content/new-project.js";
 import { createHtmlElement } from "../functions.js";
+import { getStorage } from "../local-storage.js";
 
 let HTML_OPTION_ELEMENT = [];
 
 export function createOptionElement() {
-    for (const x of TO_STORAGE_PROJECTS) {
+    const getSavedProjects = getStorage()
+    for (const x of getSavedProjects) {
         HTML_OPTION_ELEMENT.push(x.title);
         console.log(HTML_OPTION_ELEMENT, 'createOptionElement func')
         for (const y in HTML_OPTION_ELEMENT) {

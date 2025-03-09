@@ -5,17 +5,22 @@ import "./css/aside.css";
 
 // import hamburger from "./header.js";
 import { SHOWMODAL } from "./modal.js";
-import { displayHtmlProjects } from "./UI.js";
-import { getStorage } from "./local-storage.js";
+import { displayHtmlProjects, displayHtmlTodo } from "./UI.js";
+import { getStorage, getTodoStorage } from "./local-storage.js";
 
 const ADD_BTN = document.querySelectorAll('.add');
 
-window.addEventListener('load', () => {
+window.addEventListener('load', (e) => {
     const getSavedProjects = getStorage();
-    console.log(getSavedProjects, 'index')
+    const getSavedTodo = getTodoStorage()
+    // console.log(getSavedProjects, 'index')
     if (getSavedProjects) {
         displayHtmlProjects(getSavedProjects);
-    } else alert('no saved data')
+        if (getSavedTodo) {
+            displayHtmlTodo(getSavedTodo);
+        } else alert('no saved todo')
+    
+    } else alert('no saved projects');
 });
 
 for (let btn of ADD_BTN) {

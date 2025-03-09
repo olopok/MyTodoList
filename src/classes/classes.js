@@ -9,10 +9,11 @@ export class Project {
 };
 
 export class ToDo extends Project {
-    constructor(title, description, dueDate, priority) {
+    constructor(title, description, dueDate, priority, project) {
         super(title, description, dueDate);
         this.status = false;
         this.priority = priority;
+        this.project = project;
     };
 
     setStatus() {
@@ -23,5 +24,9 @@ export class ToDo extends Project {
 
     setPriority(priority) {
         this.priority = priority;
+    }
+
+    setProject(project) {
+        this.project = project;
     }
 };

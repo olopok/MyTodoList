@@ -5,7 +5,7 @@ if (!items) {
     items = getStorage();
 } else 
 localStorage.setItem('Projects', JSON.stringify(ar));
-    console.log(items, 'setStorage func');
+    // console.log(items, 'setStorage func');
 };
 
 export function getStorage() {
@@ -14,5 +14,27 @@ export function getStorage() {
         const userData = JSON.parse(storedData);
         return userData;
       } else 
-        console.log('User data not found in local storage')
-}
+        console.log('User data not found in local projects storage')
+};
+
+export function setTodoStorage(arr) {
+    let items;
+    if (!items) {
+        localStorage.setItem('Todo', JSON.stringify(arr));
+        items = getTodoStorage();
+    } else 
+    localStorage.setItem('Todo', JSON.stringify(arr));
+        console.log(items, 'setStorage func');
+    
+};
+
+export function getTodoStorage() {
+    const storedData = localStorage.getItem('Todo')
+    console.log(storedData, 'getTodoStorage')
+    if (storedData) {
+        const userData = JSON.parse(storedData);
+        return userData;
+      } else 
+        console.log('User data not found in local todos storage')
+};
+
