@@ -17,8 +17,11 @@ export class ToDo extends Project {
     };
 
     setStatus() {
-        if (isAfter(`${this.dueDate}`, new Date())) {
-           return  this.status = 'In progress';
+        if (!this.dueDate) {
+            return this.status = ""
+        }
+        else if (isAfter(`${this.dueDate}`, new Date())) {
+            return this.status = 'In progress';
         } else return this.status = 'Delayed';
     };
 

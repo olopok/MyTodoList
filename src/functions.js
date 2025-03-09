@@ -1,8 +1,7 @@
 import { SHOWMODAL, editTodoModal } from "./modal.js";
 import { clearHtmlOptionElement, editProjectsModal } from "./modal/projects-options.js";
-import { TO_STORAGE_PROJECTS, displayHtmlProjects } from "./aside-content/new-project.js";
 import { getStorage, setStorage, getTodoStorage, setTodoStorage } from "./local-storage.js";
-import { ToDo } from "./classes/classes.js";
+import { isAfter } from "date-fns";
 
 let nodeList, indexStorage;
 
@@ -50,16 +49,18 @@ function changeTodoValue(x) {
     };
     if (x.dueDate) {
         nodeList.item(2).textContent = x.dueDate;
+        changeStatus()
         getSavedTodos[regex].dueDate = x.dueDate;
+        getSavedTodos[regex].status = x.status
     };
     if (x.priority) {
         nodeList.item(3).textContent = x.priority;
         getSavedTodos[regex].priority = x.priority;
     };
-    if (x.status) {
-        nodeList.item(4).textContent = x.status;
-        getSavedTodos[regex].status = x.status;
-    };
+    // if (x.status) {
+    //     nodeList.item(4).textContent = x.status;
+    //     getSavedTodos[regex].status = x.status;
+    // };
     if (x.projectselection) {
         nodeList.item(5).textContent = x.projectselection;
         getSavedTodos[regex].project = x.projectselection;
@@ -130,6 +131,15 @@ export function editTodo(e) {
         editTodoModal();
         dial.close();
     });
+};
 
-
+function changeStatus() {
+    const nodeValue = nodeList.item(2).textContent
+    console.log(nodeValue, 'changeStatus')
+    if (!nodeValue) {
+        return nodeList.item(4).textContent = ""
+    }
+    else if (isAfter(nodeValue, new Date())) {
+        return nodeList.item(4).textContent = 'In progress';
+    } else return nodeList.item(4).textContent = 'Delayed';
 }
