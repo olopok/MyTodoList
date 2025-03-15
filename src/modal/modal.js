@@ -1,6 +1,6 @@
-import { projectList } from "./aside-content/new-project";
-import { createOptionElement, clearHtmlOptionElement, editProjectsModal } from "./modal/projects-options.js";
-import { todoList } from "./main-content/new-todo.js";
+import { projectList } from "../aside-content/new-project";
+import { createOptionElement, clearHtmlOptionElement, editProjectsModal } from "./projects-options.js";
+import { todoList } from "../main-content/new-todo.js";
 
 const DIAL_PROJECT = document.querySelector("#project-modal");
 const DIAL_TODO = document.querySelector('#todo-modal')

@@ -1,11 +1,9 @@
 import "./css/style.css";
-import "./css/hamburger.css";
 import "./css/modal.css";
 import "./css/main-section.css";
 import "./css/aside.css";
 
-// import hamburger from "./header.js";
-import { SHOWMODAL } from "./modal.js";
+import { SHOWMODAL } from "./modal/modal.js";
 import { displayHtmlProjects, displayHtmlTodo } from "./UI.js";
 import { getStorage, getTodoStorage } from "./local-storage.js";
 import { showAllTodo } from "./functions.js";

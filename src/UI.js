@@ -24,7 +24,7 @@ export function displayHtmlProjects(project) {
 
         htmlProject.h3.textContent = project[i].title;
         htmlProject.p.textContent = project[i].description;
-        htmlProject.span.textContent = project[i].dueDate;
+        htmlProject.span.textContent = "Due date: " + project[i].dueDate;
         htmlProject.editButton.classList.add('icon');
         htmlProject.deleteButton.classList.add('icon');
         htmlProject.editButton.appendChild(htmlProject.imgEditButton);
@@ -63,10 +63,10 @@ export function displayHtmlTodo(todo) {
 
         htmlTodo.p.textContent = todo[i].description;
         htmlTodo.h3.textContent = todo[i].title;
-        htmlTodo.span.textContent = todo[i].dueDate;
-        htmlTodo.span1.textContent = todo[i].priority;
-        htmlTodo.span2.textContent = todo[i].status;
-        htmlTodo.span3.textContent = todo[i].project;
+        htmlTodo.span.textContent = "Due date: " + todo[i].dueDate;
+        htmlTodo.span1.textContent = "Priority: " + todo[i].priority;
+        htmlTodo.span2.textContent = "Status: " + todo[i].status;
+        htmlTodo.span3.textContent = "Project: " + todo[i].project;
         htmlTodo.editButton.classList.add('icon');
         htmlTodo.deleteButton.classList.add('icon');
         htmlTodo.editButton.appendChild(htmlTodo.imgEditButton);

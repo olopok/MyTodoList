@@ -1,4 +1,4 @@
-import { SHOWMODAL, editTodoModal } from "./modal.js";
+import { SHOWMODAL, editTodoModal } from "./modal/modal.js";
 import { clearHtmlOptionElement, editProjectsModal } from "./modal/projects-options.js";
 import { getStorage, setStorage, getTodoStorage, setTodoStorage } from "./local-storage.js";
 import { isAfter, isEqual, startOfDay } from "date-fns";
