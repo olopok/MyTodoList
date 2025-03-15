@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script defer src="main.js"></script></head>
+
+<body>
+    <header>
+        <div class="logo">
+            MY TO-DO APP
+        </div>
+        <div class="hamburger-menu">
+
+        </div>
+    </header>
+    <div class="body-container">
+        <dialog class="modal" id="project-modal">
+            <form autocomplete="off" method="dialog" id="projects-form">
+                <ul>
+                    <li>
+                        <label for="title">Title</label>
+                        <input type="text" id="prj-title" name="title" required>
+                    </li>
+                    <li>
+                        <label for="textArea">Description</label>
+                        <textarea name="description" id="prj-textarea"></textarea>
+                    </li>
+                    <li>
+                        <label for="due-date">Due Date</label>
+                        <input type="date" id="prj-due-date" name="dueDate">
+                    </li>
+                </ul>
+                <div id="projects-btn-wrapper" class="btn-container">
+                    <button id="project-submit" class="active" type="submit">Confirm</button>
+                    <button type="button" id="cancel-project">Cancel</button>
+                    <button type="button" id="prj-save" class="none">Save</button>
+                </div>
+            </form>
+        </dialog>
+
+        <dialog class="modal" id="todo-modal">
+            <form autocomplete="off" method="dialog" id="todo-form">
+                <ul>
+                    <li>
+                        <label for="title">Title</label>
+                        <input type="text" id="todo-title" name="title" required>
+                    </li>
+                    <li>
+                        <label for="textArea">Description</label>
+                        <textarea name="description" id="todo-textArea"></textarea>
+                    </li>
+                    <li>
+                        <label for="due-date">Due Date</label>
+                        <input type="date" id="todo-due-date" name="dueDate" required>
+                    </li>
+                    <li class="priority-list">
+                        <label for="priority">Priority</label>
+                        <select name="priority" id="priority">
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="hight">Hight</option>
+                        </select>
+                    </li>
+                    <li class="project">
+                        <label for="projectselection">Project</label>
+                        <select name="projectselection" id="project-selection">
+                            
+                        </select>
+                    </li>
+                </ul>
+                <div class="btn-container">
+                    <button type="submit" id="todo-submit" class="active">Confirm</button>
+                    <button type="button" id="cancel-todo">Cancel</button>
+                    <button type="button" id="todo-save" class="none">Save</button>
+                </div>
+            </form>
+        </dialog>
+
+        <aside class="left-main-container">
+            <section class="projects-container">
+                <div class="title-container">
+                    <h1 class="title">PROJECTS</h1>
+                    <button class="add" id="project-list">+</button>
+                </div>
+                <div class="display-section" id="display-projects">
+                </div>
+            </section>
+        </aside>
+        <main class="main-container">
+            <section class="todo-container">
+                <div class="title-container">
+                    <h1 class="title">TO-DO LIST</h1>
+                    <button class="show-all" id="all">ALL TODO</button>
+                    <button class="add" id="todo-list">+</button>
+                </div>
+                <div class="display-section" id="display-todo">
+
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>
