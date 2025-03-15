@@ -2,6 +2,7 @@ import { SHOWMODAL, editTodoModal } from "./modal.js";
 import { clearHtmlOptionElement, editProjectsModal } from "./modal/projects-options.js";
 import { getStorage, setStorage, getTodoStorage, setTodoStorage } from "./local-storage.js";
 import { isAfter, isEqual, startOfDay } from "date-fns";
+import { displayHtmlTodo } from "./UI.js";
 
 let nodeList, indexStorage;
 
@@ -154,4 +155,29 @@ function changeStatus() {
     else if (isEqual(nodeValue, startOfDay(new Date())) || isAfter(nodeValue, startOfDay(new Date()))) {
         return nodeList.item(4).textContent = 'In progress';
     } else return nodeList.item(4).textContent = 'Delayed';
+}
+
+export function showRelatedTodo(e) {
+    console.log(e)
+    const displayContainer = document.getElementById('display-todo');
+    const projectTitle = e.target.textContent;
+    console.log(projectTitle)
+    const todo = getTodoStorage();
+    let relatedTodo = [];
+    for (let x of todo) {
+        console.log(x)
+        if ( x.project == projectTitle) {
+            relatedTodo.push(x);
+        }
+    }
+    displayContainer.innerHTML = "";
+    displayHtmlTodo(relatedTodo);
+};
+
+export function showAllTodo() {
+    const todo = getTodoStorage();
+    const displayContainer = document.getElementById('display-todo');
+
+    displayContainer.innerHTML = "";
+    displayHtmlTodo(todo);
 }

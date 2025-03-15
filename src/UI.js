@@ -1,6 +1,6 @@
 import { createHtmlElement, editTodo, deleteTodo } from "./functions.js";
-import { editProject, deleteProject } from "./functions.js";
-import { ToDo } from "./classes/classes.js";
+import { editProject, deleteProject, showRelatedTodo } from "./functions.js";
+// import { ToDo } from "./classes/classes.js";
 
 import pencil from "./icon/pencil.svg";
 import del from "./icon/delete.svg";
@@ -38,13 +38,13 @@ export function displayHtmlProjects(project) {
         DISPLAY_PROJECTS.appendChild(htmlProject.wrapper);
         htmlProject.editButton.addEventListener('click', editProject);
         htmlProject.deleteButton.addEventListener('click', deleteProject);
+        htmlProject.h3.addEventListener('click', showRelatedTodo);
     }
 };
 
 export function displayHtmlTodo(todo) {
 
     const displayTodo = document.getElementById('display-todo')
-
 
     for (let i = 0; i < todo.length; i++) {
         const htmlTodo = {
@@ -84,5 +84,4 @@ export function displayHtmlTodo(todo) {
         htmlTodo.editButton.addEventListener('click', editTodo);
         htmlTodo.deleteButton.addEventListener('click', deleteTodo);
     }
-
 }

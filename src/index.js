@@ -8,8 +8,12 @@ import "./css/aside.css";
 import { SHOWMODAL } from "./modal.js";
 import { displayHtmlProjects, displayHtmlTodo } from "./UI.js";
 import { getStorage, getTodoStorage } from "./local-storage.js";
+import { showAllTodo } from "./functions.js";
 
 const ADD_BTN = document.querySelectorAll('.add');
+const SHOW_ALL_TODO = document.getElementById('all');
+
+SHOW_ALL_TODO.addEventListener('click', showAllTodo);
 
 window.addEventListener('load', (e) => {
     const getSavedProjects = getStorage();
@@ -30,3 +34,4 @@ for (let btn of ADD_BTN) {
         SHOWMODAL(ID);
     });
 };
+

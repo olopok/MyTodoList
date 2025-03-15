@@ -18,10 +18,6 @@
     position: relative;
 }
 
-/* .single-todo-container:hover {
-    background-color: darkgray;
-    cursor: pointer;
-} */
 
 .edit {
     position: absolute;

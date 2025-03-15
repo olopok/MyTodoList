@@ -16,7 +16,13 @@
     position: relative;
 }
 
-.single-project-container:hover {
+.project-title {
+    border: 2px solid black;
+    border-radius: 20px;
+    padding-left: 0.3rem;
+    background-color: lightgray;
+}
+.project-title:hover {
     background-color: darkgray;
     cursor: pointer;
 }
