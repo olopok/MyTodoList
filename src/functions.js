@@ -10,7 +10,6 @@ export function stringStorageDel(x) {
     if (x === 'Projects') {
         const getSavedProjects = getStorage()
         getSavedProjects.splice(indexStorage, 1)
-        // console.log(getSavedProjects, 'deleted')
         setStorage(getSavedProjects)
     } else if (x === 'Todo') {
         const getSavedTodo = getTodoStorage()
@@ -166,7 +165,7 @@ export function showRelatedTodo(e) {
     let relatedTodo = [];
     for (let x of todo) {
         console.log(x)
-        if ( x.project == projectTitle) {
+        if (x.project == projectTitle) {
             relatedTodo.push(x);
         }
     }

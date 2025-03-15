@@ -1,4 +1,4 @@
-import { TO_STORAGE_PROJECTS } from "../aside-content/new-project.js";
+// import { TO_STORAGE_PROJECTS } from "../aside-content/new-project.js";
 import { createHtmlElement } from "../functions.js";
 import { getStorage } from "../local-storage.js";
 

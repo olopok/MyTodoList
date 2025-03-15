@@ -1,10 +1,9 @@
 import { createHtmlElement, editTodo, deleteTodo } from "./functions.js";
 import { editProject, deleteProject, showRelatedTodo } from "./functions.js";
-// import { ToDo } from "./classes/classes.js";
 
 import pencil from "./icon/pencil.svg";
 import del from "./icon/delete.svg";
-import { parseJSONWithOptions } from "date-fns/fp";
+// import { parseJSONWithOptions } from "date-fns/fp";
 
 export function displayHtmlProjects(project) {
 

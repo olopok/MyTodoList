@@ -4,7 +4,7 @@ import { todoList } from "../main-content/new-todo.js";
 
 const DIAL_PROJECT = document.querySelector("#project-modal");
 const DIAL_TODO = document.querySelector('#todo-modal')
-const EL = document.querySelector('.priority-list');
+// const EL = document.querySelector('.priority-list');
 const FORM_PROJECT = document.querySelector('#projects-form');
 const FORM_TODO = document.querySelector('#todo-form');
 let FORM_ENTRIES;

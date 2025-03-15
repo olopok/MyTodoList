@@ -1,4 +1,3 @@
-import { createHtmlElement } from "../functions.js";
 import { ToDo } from "../classes/classes.js";
 import { getTodoStorage, setTodoStorage } from "../local-storage.js";
 import { displayHtmlTodo } from "../UI.js";
@@ -15,24 +14,13 @@ export function todoList(entries) {
     if (getSavedTodo) {
         getSavedTodo.push(NEW_TODO)
         setTodoStorage(getSavedTodo)
-    } 
+        displayContainer.innerHTML = ""
+        displayHtmlTodo(getSavedTodo);
+    } else if (!getSavedTodo) {
     TO_STORAGE_TODO.push(NEW_TODO)
-
     displayContainer.innerHTML = ""
-    displayHtmlTodo(getSavedTodo);
-
+    displayHtmlTodo(TO_STORAGE_TODO);
+    setTodoStorage(TO_STORAGE_TODO)
     console.log(getSavedTodo, 'todolist func')
+    }
 }
-
-// export function projectList(entries) {
-//     const NEW_PROJECT = new Project(entries.title, entries.description, entries.dueDate);
-//     const getSavedProjects = getStorage();
-//     console.log(getSavedProjects.length, 'projectList func')
-//     if (getSavedProjects) {
-//         getSavedProjects.push(NEW_PROJECT)
-//     }
-//     TO_STORAGE_PROJECTS.push(NEW_PROJECT);
-//     setStorage(getSavedProjects)
-//     displayContainer.innerHTML = "";
-//     displayHtmlProjects(getSavedProjects)
-// };

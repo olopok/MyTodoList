@@ -5,7 +5,6 @@ if (!items) {
     items = getStorage();
 } else 
 localStorage.setItem('Projects', JSON.stringify(ar));
-    // console.log(items, 'setStorage func');
 };
 
 export function getStorage() {

@@ -16,7 +16,6 @@ SHOW_ALL_TODO.addEventListener('click', showAllTodo);
 window.addEventListener('load', (e) => {
     const getSavedProjects = getStorage();
     const getSavedTodo = getTodoStorage()
-    // console.log(getSavedProjects, 'index')
     if (getSavedProjects) {
         displayHtmlProjects(getSavedProjects);
         if (getSavedTodo) {

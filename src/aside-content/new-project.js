@@ -8,13 +8,18 @@ const displayContainer = document.getElementById('display-projects')
 export function projectList(entries) {
     const NEW_PROJECT = new Project(entries.title, entries.description, entries.dueDate);
     const getSavedProjects = getStorage();
-    // console.log(getSavedProjects.length, 'projectList func')
+    console.log(getSavedProjects, 'projectList func')
     if (getSavedProjects) {
         getSavedProjects.push(NEW_PROJECT)
-    }
+        displayContainer.innerHTML = "";
+        displayHtmlProjects(getSavedProjects)
+        setStorage(getSavedProjects)
+
+    } else if (!getSavedProjects) {
     TO_STORAGE_PROJECTS.push(NEW_PROJECT);
-    setStorage(getSavedProjects)
+    setStorage(TO_STORAGE_PROJECTS)
     displayContainer.innerHTML = "";
-    displayHtmlProjects(getSavedProjects)
+    displayHtmlProjects(TO_STORAGE_PROJECTS)
+    }
 };
 
